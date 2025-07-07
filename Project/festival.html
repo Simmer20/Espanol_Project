@@ -1,45 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Discover Spanish Culture</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="styles.css" rel="stylesheet" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css "/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f1e4;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    .header {
+      background-color: #c62828;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .header nav ul li {
+      margin: 0 15px;
+    }
+
+    .header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero {
+      text-align: center;
+      background: url('Images/flower.webp') center/cover;
+      color: #fff;
+      padding: 100px 20px;
+    }
+
+    .hero-text h2 { font-size: 2em; }
+
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+      background: #f8f1e4;
+    /* background-attachment: fixed; */
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f8f1e4;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 280px;
+      height: 350px;
+      position: relative;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      cursor: pointer;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.5s ease;
+      scroll-snap-align: start;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .carousel-item h4 {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.2em;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      max-width: 900px;
+      margin: 5% auto;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.85); /* semi-transparent white */
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .modal-content p {
+      font-size: 1.1em;
+      text-align: center;
+    }
+
+    .close {
+      align-self: flex-end;
+      font-size: 28px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .video-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .modal-content iframe,
+    .modal-content video {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="religion.html">Religion</a></li>
-        <li><a href="language.html">Language</a></li>
-      
-      </ul>
-    </nav>
-  </header>
 
-   <section class="hero">
-    <div class="hero-text">
-      <h2>Experience the Passion and History of Spain</h2>
-      <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
-    </div>
-  </section>
+<!-- Header -->
+<header class="header">
+  <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
+  <nav>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="festival.html">Festivals & Traditions</a></li>
+      <li><a href="architecture.html">Art & Architecture</a></li>
+      <li><a href="food.html">Food</a></li>
+      <li><a href="religion.html">Religion</a></li>
+      <li><a href="language.html">Language</a></li>
+    </ul>
+  </nav>
+</header>
 
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>Experience the Passion and History of Spain</h2>
+    <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
+  </div>
+</section>
+
+<!-- Festivals Section -->
 <section id="festivals" class="section">
-      <h3>Famous Spanish Festivals</h3>
-      <img src="images/festivals.jpg" alt="Spanish Festivals" />
-      <ul>
-        <li><strong>San Jordi's Day:</strong> A romantic celebration in Catalonia, similar to Valentine's Day.</li>
-        <li><strong>Patios de Córdoba:</strong> Flower-filled courtyards open to the public each May.</li>
-        <li><strong>La Tomatina:</strong> The world-famous tomato fight in Buñol.</li>
-        <li><strong>Three Kings Day:</strong> Major gift-giving celebration on January 6.</li>
-        <li><strong>Cinco de Mayo:</strong> Celebrated more in Mexico and the U.S., but notable in Spanish-speaking cultures.</li>
-        <li><strong>Caimada:</strong> A Galician fire ritual involving a spell and flaming punch.</li>
-      </ul>
-    </section>
+  <h3>Famous Spanish Festivals</h3>
+
+  <!-- Carousel Container -->
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <div class="carousel-item" data-title="La Tomatina" data-description="The world-famous tomato fight in Buñol." data-video="Images/la tomatina.mp4">
+        <img src="Images/tomatina.jpg" alt="La Tomatina" />
+        <h4>La Tomatina</h4>
+      </div>
+
+      <div class="carousel-item" data-title="Bullfighting" data-description="Spanish bullfighting is a physical contest where humans attempt to subdue or kill a bull." data-video="Images/bullfight.mp4">
+        <img src="Images/bull fight 1.avif" alt="Bullfighting" />
+        <h4>Bullfighting</h4>
+      </div>
+
+      <div class="carousel-item" data-title="Flamenco" data-description="An expressive Spanish dance and music style." data-video="Images/flamencodance1.mp4">
+        <img src="Images/4.jpg" alt="Flamenco" />
+        <h4>Flamenco</h4>
+      </div>
+
+      <div class="carousel-item" data-title="La Mercè" data-description="Barcelona’s biggest annual festival, featuring parades, fireworks, human towers, and concerts." data-video="Images/lamerce.mp4">
+        <img src="Images/lamerce.jpg" alt="La Mercè" />
+        <h4>La Mercè</h4>
+      </div>
+
+      <div class="carousel-item" data-title="San Fermín" data-description="Fiesta de San Fermín, held annually in Pamplona, Spain." data-video="Images/sanfermin.mp4">
+        <img src="Images/sanfermin.avif" alt="San Fermín" />
+        <h4>San Fermín</h4>
+      </div>
+
+      <div class="carousel-item" data-title="Sitges Carnival" data-description="A vibrant and extravagant celebration known for its colorful costumes and lively atmosphere." data-video="Images/semana santa.mp4">
+        <img src="Images/sitgescarnival.webp" alt="Sitges Carnival" />
+        <h4>Sitges Carnival</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Details -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById("carousel");
+  const items = document.querySelectorAll(".carousel-item");
+
+  // Function to update active card based on carousel scroll
+  function updateActiveCard() {
+    const scrollLeft = carousel.scrollLeft;
+    const containerWidth = carousel.clientWidth;
+    const totalScrollWidth = carousel.scrollWidth - containerWidth;
+
+    if (totalScrollWidth === 0) return;
+
+    const scrollFraction = scrollLeft / totalScrollWidth;
+    const currentIndex = Math.round(scrollFraction * (items.length - 1));
+
+    items.forEach((item, index) => {
+      const distanceFromCenter = Math.abs(index - currentIndex);
+      const scale = Math.max(1 - distanceFromCenter * 0.1, 0.8);
+      const rotateY = (index - currentIndex) * 10;
+
+      item.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
+    });
+  }
+
+  // Attach scroll listener to carousel
+  carousel.addEventListener("scroll", updateActiveCard);
+
+  // Initial call
+  updateActiveCard();
+
+  // Show modal on card click
+  document.querySelectorAll(".carousel-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const modal = document.getElementById("detailModal");
+      const modalBody = document.getElementById("modal-body");
+      const title = item.dataset.title;
+      const description = item.dataset.description;
+      const videoSrc = item.dataset.video;
+
+      const isLocalVideo = videoSrc && !videoSrc.startsWith("http");
+
+      const videoEmbed = isLocalVideo
+        ? `<video controls style="width:100%;border-radius:10px;"><source src="${videoSrc}" type="video/mp4">Your browser does not support the video tag.</video>`
+        : `<iframe src="${videoSrc}" style="width:100%;border-radius:10px;" frameborder="0" allowfullscreen></iframe>`;
+
+      modalBody.innerHTML = `
+        <h2>${title}</h2>
+        <div class="video-container">${videoEmbed}</div>
+        <p style="margin-top:20px;">${description}</p>
+      `;
+      modal.style.display = "block";
+    });
+  });
+
+  // Close modal
+  document.querySelector(".close").addEventListener("click", () => {
+    document.getElementById("detailModal").style.display = "none";
+  });
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById("detailModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>
