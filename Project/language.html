@@ -1,44 +1,646 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover Spanish Culture</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="styles.css" rel="stylesheet" />
-  <script src="script.js" defer></script>
+   
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Header Navigation - Consistent with architecture page */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            text-align: center;
+            color: #c41e3a;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .header h1 i {
+            margin-right: 0.5rem;
+        }
+        
+        .header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        .header nav ul li a:hover,
+        .header nav ul li a.active {
+            color: #c41e3a;
+            background: rgba(196, 30, 58, 0.1);
+        }
+        
+        /* Hero Section - Adjusted for header height */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-top: 120px; /* Account for header height */
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #c41e3a, #ffc107);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Countries Grid */
+        .countries-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #c41e3a;
+            margin-bottom: 3rem;
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .country-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .country-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .country-flag {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .country-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .country-info {
+            font-size: 0.9rem;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            background: rgba(196, 30, 58, 0.9);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+        
+        .country-card:hover .country-info {
+            opacity: 1;
+        }
+        
+        /* Dialects Carousel */
+        .dialects-section {
+            background: linear-gradient(135deg, #c41e3a, #ffc107);
+            padding: 5rem 2rem;
+            color: white;
+        }
+        
+        .dialects-section .section-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 400px;
+            position: relative;
+            scroll-snap-align: start;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .carousel-content h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .carousel-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+        
+        /* Fun Facts Section */
+        .fun-facts {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+        
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .fact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .fact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fact-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .fact-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #c41e3a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .fact-text {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero {
+                margin-top: 160px; /* Adjust for mobile header */
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header nav ul {
+                gap: 0.5rem;
+            }
+            
+            .header nav ul li a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="religion.html">Religion</a></li>
-        <li><a href="language.html">Language</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Navigation Bar -->
+    <header class="header">
+        <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="festival.html">Festivals & Traditions</a></li>
+                <li><a href="architecture.html">Art & Architecture</a></li>
+                <li><a href="food.html">Food</a></li>
+                <li><a href="religion.html">Religion</a></li>
+                <li><a href="language.html" class="active">Language</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Experience the Passion and History of Spain</h2>
-      <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
-    </div>
-  </section>
-
-  <section id="language" class="section">
-      <h3>Language & Dialects</h3>
-      <img src="Images/languages.png" alt="Spanish Language and Dialects" />
-      <p>Spanish (Castilian) is the official language, but Spain is home to many regional dialects:</p>
-      <ul>
-        <li>Catalan (Catalonia)</li>
-        <li>Basque (Euskadi)</li>
-        <li>Galician (Galicia)</li>
-        <li>Valencian (Valencia)</li>
-        <li>Andalusian (South)</li>
-      </ul>
+    <!-- Hero Section -->
+    <!-- Background image: https://images.unsplash.com/photo-1539037116277-4db20889f2d4 (Spain landscape) -->
+    <section class="hero" id="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Why Learn Spanish? 🌎🗣️</h1>
+            <p>Discover the beauty of the Spanish language and connect with over 500 million speakers worldwide!</p>
+            <a href="#countries" class="cta-button">Explore Spanish-Speaking Countries</a>
+        </div>
     </section>
+
+    <!-- Countries Grid Section -->
+    <section class="countries-section" id="countries">
+        <h2 class="section-title" data-aos="zoom-in">Spanish-Speaking Countries 🌍</h2>
+        <div class="countries-grid">
+            <div class="country-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="country-flag">🇪🇸</span>
+                <div class="country-name">Spain</div>
+                <div class="country-info">📍 Birthplace of the Spanish language with 47 million speakers</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="country-flag">🇲🇽</span>
+                <div class="country-name">Mexico</div>
+                <div class="country-info">🌮 Largest Spanish-speaking country with 130 million speakers</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="300">
+                <span class="country-flag">🇦🇷</span>
+                <div class="country-name">Argentina</div>
+                <div class="country-info">🥩 Famous for tango and distinctive "vos" pronunciation</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="400">
+                <span class="country-flag">🇨🇴</span>
+                <div class="country-name">Colombia</div>
+                <div class="country-info">☕ Known for the clearest Spanish accent and amazing coffee</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="500">
+                <span class="country-flag">🇵🇪</span>
+                <div class="country-name">Peru</div>
+                <div class="country-info">🏔️ Home to Machu Picchu and ancient Inca heritage</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="600">
+                <span class="country-flag">🇨🇱</span>
+                <div class="country-name">Chile</div>
+                <div class="country-info">🍷 Long, narrow country famous for wine and unique slang</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dialects Carousel Section -->
+    <section class="dialects-section" id="dialects">
+        <h2 class="section-title" data-aos="fade-down">Regional Languages of Spain 🗣️</h2>
+        <div class="carousel-container" data-aos="zoom-in">
+            <div class="carousel" id="carousel">
+                <div class="carousel-slide">
+                    <!-- Catalan region image: https://images.unsplash.com/photo-1583422409516-2895a77efded -->
+                    <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Catalan">
+                    <div class="carousel-content">
+                        <h3>Catalan 🏛️</h3>
+                        <p>Spoken in Catalonia, Valencia, and the Balearic Islands</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Basque region image: https://images.unsplash.com/photo-1590736969955-71cc94901144 -->
+                    <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Basque">
+                    <div class="carousel-content">
+                        <h3>Basque (Euskera) 🏔️</h3>
+                        <p>Ancient language isolate spoken in the Basque Country</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Galician region image: https://images.unsplash.com/photo-1578662996442-48f60103fc96 -->
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Galician">
+                    <div class="carousel-content">
+                        <h3>Galician 🌊</h3>
+                        <p>Romance language spoken in Galicia, northwestern Spain</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Valencian region image: https://images.unsplash.com/photo-1548707309-dcebeab9ea9b -->
+                    <img src="https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Valencian">
+                    <div class="carousel-content">
+                        <h3>Valencian 🏖️</h3>
+                        <p>Variant of Catalan spoken in the Valencia region</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Andalusian region image: https://images.unsplash.com/photo-1539650116574-75c0c6d73dd4 -->
+                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73dd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Andalusian">
+                    <div class="carousel-content">
+                        <h3>Andalusian Spanish 💃</h3>
+                        <p>Distinctive dialect from southern Spain, home of flamenco</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="video-container">
+            <h2 class="section-title" data-aos="fade-up">Learn Spanish Today! 📚</h2>
+            <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                Discover why Spanish is one of the most beautiful and useful languages to learn
+            </p>
+            <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="200">
+                <!-- YouTube video: Why Learn Spanish? -->
+                <iframe 
+                    src="https://www.youtube.com/embed/DAp_v7EH9AA" 
+                    title="Why Learn Spanish?" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Facts Section -->
+    <section class="fun-facts" id="facts">
+        <h2 class="section-title" data-aos="fade-up">Amazing Spanish Facts 🎉</h2>
+        <div class="facts-grid">
+            <div class="fact-card" data-aos="flip-left" data-aos-delay="100">
+                <span class="fact-emoji">🌐</span>
+                <div class="fact-number">500M+</div>
+                <div class="fact-text">Native Spanish speakers worldwide</div>
+            </div>
+            <div class="fact-card" data-aos="flip-left" data-aos-delay="200">
+                <span class="fact-emoji">🏆</span>
+                <div class="fact-number">2nd</div>
+                <div class="fact-text">Most spoken language by native speakers</div>
+            </div>
+            <div class="fact-card" data-aos="flip-left" data-aos-delay="300">
+                <span class="fact-emoji">🗺️</span>
+                <div class="fact-number">21</div>
+                <div class="fact-text">Countries where Spanish is official</div>
+            </div>
+            <div class="fact-card" data-aos="flip-left" data-aos-delay="400">
+                <span class="fact-emoji">📈</span>
+                <div class="fact-number">559M</div>
+                <div class="fact-text">Total Spanish speakers by 2050</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS (Animate On Scroll) JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const slides = carousel.children;
+        let currentSlide = 0;
+        let isPlaying = true;
+
+        function nextSlide() {
+            if (!isPlaying) return;
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            const translateX = -currentSlide * 100;
+            carousel.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // Auto-play carousel
+        let carouselInterval = setInterval(nextSlide, 4000);
+
+        // Pause on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => {
+            isPlaying = false;
+            clearInterval(carouselInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            isPlaying = true;
+            carouselInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#countries').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Enhanced hover effects for country cards
+        const countryCards = document.querySelectorAll('.country-card');
+        countryCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add click effects to fact cards
+            const factCards = document.querySelectorAll('.fact-card');
+            factCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Add floating animation to hero emoji
+            const heroTitle = document.querySelector('.hero-content h1');
+            if (heroTitle) {
+                setInterval(() => {
+                    heroTitle.style.transform = 'translateY(-5px)';
+                    setTimeout(() => {
+                        heroTitle.style.transform = 'translateY(0)';
+                    }, 1000);
+                }, 3000);
+            }
+        });
+    </script>
+
+    <!-- 
+    HOTLINKED IMAGES AND VIDEOS USED:
+    
+    Hero Background: https://images.unsplash.com/photo-1539037116277-4db20889f2d4 (Spain landscape)
+    Catalan: https://images.unsplash.com/photo-1583422409516-2895a77efded (Barcelona)
+    Basque: https://images.unsplash.com/photo-1590736969955-71cc94901144 (Basque Country)
+    Galician: https://images.unsplash.com/photo-1578662996442-48f60103fc96 (Galicia coast)
+    Valencian: https://images.unsplash.com/photo-1548707309-dcebeab9ea9b (Valencia)
+    Andalusian: https://images.unsplash.com/photo-1539650116574-75c0c6d73dd4 (Andalusia)
+    YouTube Video: https://www.youtube.com/embed/DAp_v7EH9AA (Why Learn Spanish?)
+    
+    Country flags are displayed using emoji characters (🇪🇸 🇲🇽 🇦🇷 🇨🇴 🇵🇪 🇨🇱)
+    -->
+</body>
+</html>
