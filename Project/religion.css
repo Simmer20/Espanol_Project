@@ -1,0 +1,566 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Spain Flag Colors */
+:root {
+    --spain-red: #c41e3a;
+    --spain-yellow: #ffd700;
+    --spain-dark-red: #a01729;
+    --spain-light-yellow: #fff3a0;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--spain-red), var(--spain-dark-red));
+    color: var(--white);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--spain-yellow);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px 20px 50px;
+    background: linear-gradient(135deg, var(--spain-yellow), var(--spain-light-yellow));
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: var(--spain-red);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--spain-dark-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Statistics Section */
+.stats {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.stats h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--spain-red);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.stat-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--spain-red), var(--spain-yellow));
+    width: 0%;
+    transition: width 2s ease-in-out;
+    border-radius: 4px;
+}
+
+/* Timeline Section */
+.timeline {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.timeline h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--spain-red), var(--spain-yellow));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 2rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--spain-red);
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px var(--spain-yellow);
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 45%;
+    border-left: 4px solid var(--spain-yellow);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 55%;
+    border-left: none;
+    border-right: 4px solid var(--spain-yellow);
+}
+
+.timeline-content h3 {
+    color: var(--spain-red);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+    color: var(--spain-yellow);
+    font-weight: bold;
+    background: var(--spain-red);
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    margin-top: 1rem;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.gallery h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+}
+
+.gallery-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.gallery-main {
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.gallery-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: var(--white);
+    padding: 2rem;
+}
+
+.gallery-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--spain-yellow);
+}
+
+.gallery-info p {
+    margin-bottom: 0.5rem;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    border-color: var(--spain-red);
+    transform: scale(1.1);
+}
+
+/* Traditions Section */
+.traditions {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.traditions h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+}
+
+.traditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tradition-card {
+    background: linear-gradient(135deg, var(--spain-yellow), var(--spain-light-yellow));
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--spain-red);
+}
+
+.tradition-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(196, 30, 58, 0.2);
+}
+
+.tradition-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.tradition-card h3 {
+    color: var(--spain-red);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tradition-card p {
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+/* Audio Button Styles */
+.audio-btn {
+    background: var(--spain-yellow);
+    color: var(--spain-red);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.audio-btn:hover {
+    background: var(--spain-light-yellow);
+    transform: scale(1.05);
+}
+
+.audio-btn i {
+    font-size: 1rem;
+}
+
+/* Gallery Arrows */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    color: var(--spain-red);
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.gallery-arrow:hover {
+    background: var(--spain-yellow);
+}
+
+.gallery-arrow.left {
+    left: 20px;
+}
+
+.gallery-arrow.right {
+    right: 20px;
+}
+
+/* Sounds Section */
+.sounds-section {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.sounds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.sound-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.sound-card:hover {
+    transform: translateY(-5px);
+}
+
+.sound-card h3 {
+    color: var(--spain-red);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sound-card h3 i {
+    font-size: 1.5rem;
+}
+
+.sound-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Enhanced Audio Player */
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.play-button {
+    background: var(--spain-yellow);
+    color: var(--spain-red);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.play-button:hover {
+    background: var(--spain-light-yellow);
+    transform: scale(1.05);
+}
+
+.audio-progress {
+    flex: 1;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--spain-red);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .audio-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .sound-card {
+        padding: 1.5rem;
+    }
+}

@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover Spanish Culture</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="styles.css" rel="stylesheet" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Religion in Spain - Cultural Heritage</title>
+    <meta name="description" content="Explore Spain's rich religious heritage from Roman Christianity to modern Catholicism">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="religion.css">
+    <!-- Audio Elements -->
+    <audio id="gregorian-chant" preload="auto">
+        <source src="https://soundcloud.com/user-910079711/st-michae-chant-remix?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+    </audio>
+    <audio id="mezquita-prayer" preload="auto">
+        <source src="https://soundcloud.com/rimadadenji/maghreb-call-to-prayer-from?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+    </audio>
+    <audio id="pilgrimage-song" preload="auto">
+        <source src="https://soundcloud.com/pilar-l-ballarin-16875611/dum-pater-familias-codex-calixtinus-sxii?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+    </audio>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <h1><i class="fas fa-church"></i> Religion in Spain</h1>
+            </div>
+            <ul class="nav-menu">
+               <li><a href="index.html">Home</a></li>
+               <li><a href="festival.html">Festivals</a></li>
+               <li><a href="traditions.html">Traditions</a></li>
+               <li><a href="language.html">Language</a></li>
+               <li><a href="religion.html">Religion</a></li>
+               <li><a href="architecture.html">Art & Architecture</a></li>
+               <li><a href="dance.html">Dance</a></li>
+            </ul>
+        </nav>
+    </header>
   <header class="header">
     <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
     <nav>
@@ -23,6 +52,197 @@
     </nav>
   </header>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Discover Spain's Religious Heritage</h2>
+            <p>A journey through centuries of faith, culture, and tradition</p>
+            <button class="cta-button" onclick="scrollToSection('history')">Begin Exploration</button>
+        </div>
+        <div class="hero-image">
+            <img src="/Project/Images/SpriritualHeartofSpain.png" alt="Spiritual Heart of Spain" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>Religious Demographics in Spain</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-church"></i>
+                    <div class="stat-number" data-target="67">0</div>
+                    <div class="stat-label">% Catholic</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="67"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-mosque"></i>
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label">% Muslim</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="4"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star-of-david"></i>
+                    <div class="stat-number" data-target="0.2">0</div>
+                    <div class="stat-label">% Jewish</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" data-width="0.2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section id="history" class="timeline">
+        <div class="container">
+            <h2>Religious Timeline of Spain</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" onclick="showPeriod('roman')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Roman Christianity</h3>
+                        <span class="timeline-date">300 - 711 AD</span>
+                        <p>Early Christian communities established the foundation of Spanish Christianity</p>
+                    </div>
+                </div>
+                <div class="timeline-item" onclick="showPeriod('islamic')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Islamic Al-Andalus</h3>
+                        <span class="timeline-date">711 - 1492 AD</span>
+                        <p>Nearly 800 years of Islamic rule brought architectural marvels and cultural exchange</p>
+                    </div>
+                </div>
+                <div class="timeline-item" onclick="showPeriod('catholic')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Catholic Spain</h3>
+                        <span class="timeline-date">1492 - Present</span>
+                        <p>The Catholic Monarchs unified Spain under Christianity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Religious Sites Gallery -->
+    <section id="sites" class="gallery">
+        <div class="container">
+            <h2>Sacred Sites of Spain</h2>
+            <div class="gallery-container">
+                <button class="gallery-arrow left" onclick="changeImage(-1)">❮</button>
+                <div class="gallery-main">
+                    <img id="main-image" src="Images/SagradaFamilia.png" alt="Sagrada Familia" loading="lazy">
+                    <div class="gallery-info">
+                        <h3 id="site-name">Sagrada Família</h3>
+                        <p id="site-location">Barcelona</p>
+                        <p id="site-description">Gaudí's masterpiece, a symbol of Catalan Modernism and Catholic devotion</p>
+                        <button class="audio-btn" onclick="playAudio('gregorian-chant', event)">
+                            <i class="fas fa-volume-up"></i> Play Chant
+                        </button>
+                    </div>
+                </div>
+                <button class="gallery-arrow right" onclick="changeImage(1)">❯</button>
+                <div class="gallery-thumbnails">
+                    <img class="thumbnail active" src="Images/SagradaFamilia.png" alt="Sagrada Familia" onclick="changeImage(0)" loading="lazy">
+                    <img class="thumbnail" src="Images/SantiagoDeCompostela.png" alt="Santiago Cathedral" onclick="changeImage(1)" loading="lazy">
+                    <img class="thumbnail" src="Images/MezquitaCatedral.png" alt="Mezquita Cordoba" onclick="changeImage(2)" loading="lazy">
+                    <img class="thumbnail" src="Images/AlhambraGranada.png" alt="Alhambra Granada" onclick="changeImage(3)" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditions and Festivals -->
+    <section id="traditions" class="traditions">
+        <div class="container">
+            <h2>Religious Traditions & Festivals</h2>
+            <div class="traditions-grid">
+                <div class="tradition-card">
+                    <div class="tradition-icon">⛪</div>
+                    <h3>Semana Santa</h3>
+                    <p>Holy Week processions feature elaborate floats (pasos) carried through streets, accompanied by penitents in traditional robes.</p>
+                    <button class="audio-btn" onclick="playAudio('gregorian-chant', event)">
+                        <i class="fas fa-volume-up"></i> Play Processional Music
+                    </button>
+                </div>
+                <div class="tradition-card">
+                    <div class="tradition-icon">🚶‍♂️</div>
+                    <h3>Camino de Santiago</h3>
+                    <p>The Way of St. James pilgrimage attracts thousands who walk ancient routes to Santiago Cathedral, singing traditional pilgrimage songs.</p>
+                    <button class="audio-btn" onclick="playAudio('pilgrimage-song', event)">
+                        <i class="fas fa-volume-up"></i> Play Pilgrim Song
+                    </button>
+                </div>
+                <div class="tradition-card">
+                    <div class="tradition-icon">🕌</div>
+                    <h3>Ramadan in Andalusia</h3>
+                    <p>In cities with Islamic heritage like Córdoba, Ramadan is celebrated with special night prayers in historic mosques.</p>
+                    <button class="audio-btn" onclick="playAudio('mezquita-prayer', event)">
+                        <i class="fas fa-volume-up"></i> Play Prayer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sacred Sounds Section -->
+    <section id="sounds" class="sounds-section">
+        <div class="container">
+            <h2>Sacred Sounds of Spain</h2>
+            <div class="sounds-grid">
+                <div class="sound-card">
+                    <h3><i class="fas fa-church"></i> Gregorian Chant</h3>
+                    <p>Experience the medieval chants from Spanish monasteries</p>
+                    <div class="audio-player">
+                        <button class="play-button" onclick="playAudio('gregorian-chant', event)">
+                            <span class="play-icon">▶️</span>
+                            <span class="play-text">Play</span>
+                        </button>
+                        <div class="audio-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-audio="gregorian-chant"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sound-card">
+                    <h3><i class="fas fa-mosque"></i> Mezquita Prayer</h3>
+                    <p>Traditional Islamic prayers from Córdoba's historic mosque</p>
+                    <div class="audio-player">
+                        <button class="play-button" onclick="playAudio('mezquita-prayer', event)">
+                            <span class="play-icon">▶️</span>
+                            <span class="play-text">Play</span>
+                        </button>
+                        <div class="audio-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-audio="mezquita-prayer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sound-card">
+                    <h3><i class="fas fa-hiking"></i> Pilgrimage Songs</h3>
+                    <p>Traditional songs sung along the Camino de Santiago</p>
+                    <div class="audio-player">
+                        <button class="play-button" onclick="playAudio('pilgrimage-song', event)">
+                            <span class="play-icon">▶️</span>
+                            <span class="play-text">Play</span>
+                        </button>
+                        <div class="audio-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-audio="pilgrimage-song"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
   <section class="hero">
     <div class="hero-text">
       <h2>Experience the Passion and History of Spain</h2>
@@ -37,4 +257,44 @@
       </p>
       <img src="Images/Gify.gif" alt="Flamenco dance" width="300" height="200">
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Religion in Spain</h3>
+                    <p>Exploring the rich spiritual heritage of Spain through history, culture, and tradition.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="festival.html">Festivals</a></li>
+                        <li><a href="traditions.html">Traditions</a></li>
+                        <li><a href="language.html">Language</a></li>
+                        <li><a href="religion.html">Religion</a></li>
+                        <li><a href="architecture.html">Art & Architecture</a></li>
+                        <li><a href="dance.html">Dance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Discover Spanish Culture |</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="religion.js"></script>
+</body>
+</html>
   </main>
