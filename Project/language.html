@@ -1,44 +1,1039 @@
-<!DOCTYPE html>
+
+            <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover Spanish Culture</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="styles.css" rel="stylesheet" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Language - Discover Spanish Culture</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf4;
+            color: #333;
+        }
+
+        /* HEADER - Exactly like homepage */
+        .header {
+            background-color: #c8102e;
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .flag-icon {
+            width: 40px;
+            border-radius: 4px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Active state for current page */
+        nav a.active {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Hero Section - Adjusted for header height */
+        /* Hero Section - Adjusted for header height */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 80px; /* Account for header height */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #c41e3a, #ffc107);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Audio Player Styles */
+.audio-player {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.audio-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.audio-label {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    margin-bottom: 5px;
+}
+
+.custom-audio {
+    width: 200px;
+    height: 30px;
+    outline: none;
+}
+
+.custom-audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.custom-audio::-webkit-media-controls-play-button,
+.custom-audio::-webkit-media-controls-pause-button {
+    background-color: #c41e3a;
+    border-radius: 50%;
+}
+
+.custom-audio::-webkit-media-controls-timeline {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.custom-audio::-webkit-media-controls-current-time-display,
+.custom-audio::-webkit-media-controls-time-remaining-display {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive design for audio player */
+@media (max-width: 768px) {
+    .audio-player {
+        position: static;
+        margin-top: 20px;
+        transform: none;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .custom-audio {
+        width: 100%;
+    }
+}
+        /* Countries Grid */
+        .countries-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #c41e3a;
+            margin-bottom: 3rem;
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .country-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .country-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .country-flag {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .country-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .country-info {
+            font-size: 0.9rem;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            background: rgba(196, 30, 58, 0.9);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+        
+        .country-card:hover .country-info {
+            opacity: 1;
+        }
+        
+        /* Dialects Carousel */
+        .dialects-section {
+            background: linear-gradient(135deg, #c41e3a, #ffc107);
+            padding: 5rem 2rem;
+            color: white;
+        }
+        
+        .dialects-section .section-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 400px;
+            position: relative;
+            scroll-snap-align: start;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .carousel-content h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .carousel-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .local-videos-section {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+        
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Countries Images Grid */
+.countries-showcase {
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+    position: relative;
+}
+
+.countries-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.country-image-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.country-image-card:hover {
+    transform: translateY(-5px);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.country-image-card:hover .image-overlay {
+    transform: translateY(0);
+}
+
+.image-overlay h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffc107;
+}
+
+.image-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Audio Player for Countries Section */
+.countries-audio-player {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #c41e3a, #ffc107);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+    z-index: 10;
+    border: 2px solid white;
+}
+
+.countries-audio-label {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.countries-custom-audio {
+    width: 200px;
+    height: 32px;
+    outline: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.countries-custom-audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+}
+
+.countries-custom-audio::-webkit-media-controls-play-button,
+.countries-custom-audio::-webkit-media-controls-pause-button {
+    background-color: #c41e3a;
+    border-radius: 50%;
+}
+
+.countries-custom-audio::-webkit-media-controls-timeline {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
+
+.countries-custom-audio::-webkit-media-controls-current-time-display,
+.countries-custom-audio::-webkit-media-controls-time-remaining-display {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Responsive design for countries audio player */
+@media (max-width: 768px) {
+    .countries-audio-player {
+        position: static;
+        margin: 0 auto 20px;
+        transform: none;
+        width: 100%;
+        max-width: 280px;
+        display: block;
+    }
+    
+    .countries-custom-audio {
+        width: 100%;
+    }
+}
+        /* Fun Facts Section */
+       /* Fun Facts Section */
+.fun-facts {
+    background: #f8f9fa;
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fact-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+}
+
+.fact-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.fact-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c41e3a;
+    margin-bottom: 0.5rem;
+}
+
+.fact-text {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Audio Player for Fun Facts Section */
+.facts-audio-player {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(196, 30, 58, 0.2);
+    border: 2px solid #c41e3a;
+    z-index: 10;
+}
+
+.facts-audio-label {
+    color: #c41e3a;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.facts-custom-audio {
+    width: 220px;
+    height: 35px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.facts-custom-audio::-webkit-media-controls-panel {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.facts-custom-audio::-webkit-media-controls-play-button,
+.facts-custom-audio::-webkit-media-controls-pause-button {
+    background-color: #c41e3a;
+    border-radius: 50%;
+}
+
+.facts-custom-audio::-webkit-media-controls-timeline {
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.facts-custom-audio::-webkit-media-controls-current-time-display,
+.facts-custom-audio::-webkit-media-controls-time-remaining-display {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Responsive design for facts audio player */
+@media (max-width: 768px) {
+    .facts-audio-player {
+        position: static;
+        margin: 20px auto 0;
+        transform: none;
+        width: 100%;
+        max-width: 300px;
+        display: block;
+    }
+    
+    .facts-custom-audio {
+        width: 100%;
+    }
+}
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .logo-title {
+                justify-content: center;
+            }
+            
+            .header nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .hero {
+                margin-top: 160px; /* Adjust for mobile header */
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .countries-images-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header nav ul {
+                gap: 0.5rem;
+            }
+            
+            .header nav ul li a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .countries-images-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+      <!-- HEADER -->
   <header class="header">
-    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
+    <div class="logo-title">
+      <img src="images/spain flag.png" alt="Spain Flag" class="flag-icon" />
+      <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
+    </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="religion.html">Religion</a></li>
+        <li><a href="festivals.html">Festivals</a></li>
+        <li><a href="traditions.html">Traditions</a></li>
         <li><a href="language.html">Language</a></li>
+        <li><a href="religion.html">Religion</a></li>
+        <li><a href="art.html">Art & Architecture</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Experience the Passion and History of Spain</h2>
-      <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
-    </div>
-  </section>
 
-  <section id="language" class="section">
-      <h3>Language & Dialects</h3>
-      <img src="Images/languages.png" alt="Spanish Language and Dialects" />
-      <p>Spanish (Castilian) is the official language, but Spain is home to many regional dialects:</p>
-      <ul>
-        <li>Catalan (Catalonia)</li>
-        <li>Basque (Euskadi)</li>
-        <li>Galician (Galicia)</li>
-        <li>Valencian (Valencia)</li>
-        <li>Andalusian (South)</li>
-      </ul>
+    <!-- Hero Section -->
+    <!-- Background image: https://images.unsplash.com/photo-1539037116277-4db20889f2d4 (Spain landscape) -->
+  <!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-content" data-aos="fade-up">
+      <h1>Why Learn Spanish? 🌎🗣️</h1>
+      <p>Discover the beauty of the Spanish language and connect with over 500 million speakers worldwide!</p>
+      <a href="#countries" class="cta-button">Explore Spanish-Speaking Countries</a>
+  </div>
+  
+  <!-- Audio Player -->
+  <div class="audio-player" data-aos="fade-left">
+      <div class="audio-label">🎵 Introduction Audio</div>
+      <audio class="custom-audio" controls preload="metadata">
+          <source src="audios/intro.opus" type="audio/ogg">
+          <source src="audio/intro.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+  </div>
+</section>
+
+    <!-- Countries Grid Section -->
+    <section class="countries-section" id="countries">
+        <h2 class="section-title" data-aos="zoom-in">Spanish-Speaking Countries 🌍</h2>
+        <div class="countries-grid">
+            <div class="country-card" data-aos="fade-up" data-aos-delay="100">
+                <span class="country-flag">🇪🇸</span>
+                <div class="country-name">Spain</div>
+                <div class="country-info">📍 Birthplace of the Spanish language with 47 million speakers</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="200">
+                <span class="country-flag">🇲🇽</span>
+                <div class="country-name">Mexico</div>
+                <div class="country-info">🌮 Largest Spanish-speaking country with 130 million speakers</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="300">
+                <span class="country-flag">🇦🇷</span>
+                <div class="country-name">Argentina</div>
+                <div class="country-info">🥩 Famous for tango and distinctive "vos" pronunciation</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="400">
+                <span class="country-flag">🇨🇴</span>
+                <div class="country-name">Colombia</div>
+                <div class="country-info">☕ Known for the clearest Spanish accent and amazing coffee</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="500">
+                <span class="country-flag">🇵🇪</span>
+                <div class="country-name">Peru</div>
+                <div class="country-info">🏔️ Home to Machu Picchu and ancient Inca heritage</div>
+            </div>
+            <div class="country-card" data-aos="fade-up" data-aos-delay="600">
+                <span class="country-flag">🇨🇱</span>
+                <div class="country-name">Chile</div>
+                <div class="country-info">🍷 Long, narrow country famous for wine and unique slang</div>
+            </div>
+        </div>
     </section>
+
+      <!-- Countries Images Section -->
+<div class="countries-showcase" data-aos="fade-up" data-aos-delay="200">
+  <!-- Audio Player for Countries Section -->
+  <div class="countries-audio-player" data-aos="fade-left">
+      <div class="countries-audio-label">🎵 Countries Audio</div>
+      <audio class="countries-custom-audio" controls preload="metadata">
+          <source src="audios/country2.opus" type="audio/ogg">
+          <source src="audio/image2.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+  </div>
+  
+  <h3 style="color: #c41e3a; margin-bottom: 1rem; font-size: 1.5rem; text-align: center;">Spanish-Speaking Countries Showcase 📸</h3>
+  <p style="color: #666; margin-bottom: 2rem; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Visual journey through different Spanish-speaking countries and their unique characteristics
+  </p>
+  <div class="countries-images-grid">
+      <div class="country-image-card">
+          <img src="images/country.jpeg" alt="Spanish-speaking countries" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <div class="image-overlay">
+              <h4>Latin America</h4>
+              <p>Diverse cultures, one language</p>
+          </div>
+      </div>
+      <div class="country-image-card">
+          <img src="images/country1.jpeg" alt="Spanish-speaking regions" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <div class="image-overlay">
+              <h4>Spain & Americas</h4>
+              <p>Connected by language, enriched by diversity</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+    <!-- Dialects Carousel Section -->
+    <section class="dialects-section" id="dialects">
+        <h2 class="section-title" data-aos="fade-down">Regional Languages of Spain 🗣️</h2>
+        <div class="carousel-container" data-aos="zoom-in">
+            <div class="carousel" id="carousel">
+                <div class="carousel-slide">
+                    <!-- Catalan region image: https://images.unsplash.com/photo-1583422409516-2895a77efded -->
+                    <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Catalan">
+                    <div class="carousel-content">
+                        <h3>Catalan 🏛️</h3>
+                        <p>Spoken in Catalonia, Valencia, and the Balearic Islands</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Basque region image: https://images.unsplash.com/photo-1590736969955-71cc94901144 -->
+                    <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Basque">
+                    <div class="carousel-content">
+                        <h3>Basque (Euskera) 🏔️</h3>
+                        <p>Ancient language isolate spoken in the Basque Country</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Galician region image: https://images.unsplash.com/photo-1578662996442-48f60103fc96 -->
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Galician">
+                    <div class="carousel-content">
+                        <h3>Galician 🌊</h3>
+                        <p>Romance language spoken in Galicia, northwestern Spain</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Valencian region image: https://images.unsplash.com/photo-1548707309-dcebeab9ea9b -->
+                    <img src="https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Valencian">
+                    <div class="carousel-content">
+                        <h3>Valencian 🏖️</h3>
+                        <p>Variant of Catalan spoken in the Valencia region</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <!-- Andalusian region image: https://images.unsplash.com/photo-1539650116574-75c0c6d73dd4 -->
+                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73dd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Andalusian">
+                    <div class="carousel-content">
+                        <h3>Andalusian Spanish 💃</h3>
+                        <p>Distinctive dialect from southern Spain, home of flamenco</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="video-container">
+            <h2 class="section-title" data-aos="fade-up">Learn Spanish Today! 📚</h2>
+            <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                Discover why Spanish is one of the most beautiful and useful languages to learn
+            </p>
+            <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="200">
+                <!-- YouTube video: Why Learn Spanish? -->
+                <iframe 
+                    src="https://www.youtube.com/embed/DAp_v7EH9AA" 
+                    title="Why Learn Spanish?" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Videos Section -->
+    <section class="local-videos-section" id="local-videos">
+        <h2 class="section-title" data-aos="fade-up">Spanish Language Deep Dive 🎬</h2>
+        
+        <!-- Slang Video -->
+        <div class="video-container" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="color: #c41e3a; margin-bottom: 1rem; font-size: 1.5rem;">Spanish Slang & Expressions 💬</h3>
+            <p style="color: #666; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Explore the colorful world of Spanish slang and everyday expressions used across different regions
+            </p>
+            <div class="video-wrapper">
+                <video controls poster="images/slang.jpeg" style="width: 100%; border-radius: 15px;">
+                    <source src="videos/slang.mp4" type="video/mp4">
+                    <p>Your browser doesn't support HTML5 video. <a href="videos/slang.mp4">Download the video</a> instead.</p>
+                </video>
+            </div>
+        </div>
+
+        <!-- Accents Video -->
+        <div class="video-container" data-aos="fade-up" data-aos-delay="300">
+            <h3 style="color: #c41e3a; margin-bottom: 1rem; font-size: 1.5rem;">Spanish Accents Around the World 🌍</h3>
+            <p style="color: #666; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Discover how Spanish sounds different across various countries and regions
+            </p>
+            <div class="video-wrapper">
+                <video controls poster="images/accent.jpeg" style="width: 100%; border-radius: 15px;">
+                    <source src="videos/accent.mp4" type="video/mp4">
+                    <p>Your browser doesn't support HTML5 video. <a href="accents.mp4">Download the video</a> instead.</p>
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Facts Section -->
+   <!-- Fun Facts Section -->
+<section class="fun-facts" id="facts">
+  <h2 class="section-title" data-aos="fade-up">Amazing Spanish Facts 🎉</h2>
+  <div class="facts-grid">
+      <div class="fact-card" data-aos="flip-left" data-aos-delay="100">
+          <span class="fact-emoji">🌐</span>
+          <div class="fact-number">500M+</div>
+          <div class="fact-text">Native Spanish speakers worldwide</div>
+      </div>
+      <div class="fact-card" data-aos="flip-left" data-aos-delay="200">
+          <span class="fact-emoji">🏆</span>
+          <div class="fact-number">2nd</div>
+          <div class="fact-text">Most spoken language by native speakers</div>
+      </div>
+      <div class="fact-card" data-aos="flip-left" data-aos-delay="300">
+          <span class="fact-emoji">🗺️</span>
+          <div class="fact-number">21</div>
+          <div class="fact-text">Countries where Spanish is official</div>
+      </div>
+      <div class="fact-card" data-aos="flip-left" data-aos-delay="400">
+          <span class="fact-emoji">📈</span>
+          <div class="fact-number">559M</div>
+          <div class="fact-text">Total Spanish speakers by 2050</div>
+      </div>
+  </div>
+  
+  <!-- Audio Player for Fun Facts -->
+  <div class="facts-audio-player" data-aos="fade-left">
+      <div class="facts-audio-label">🎵 Fun Facts Audio</div>
+      <audio class="facts-custom-audio" controls preload="metadata">
+          <source src="audios/final.opus" type="audio/ogg">
+          <source src="audio/final.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+  </div>
+</section>
+
+    <!-- AOS (Animate On Scroll) JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const slides = carousel.children;
+        let currentSlide = 0;
+        let isPlaying = true;
+
+        function nextSlide() {
+            if (!isPlaying) return;
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            const translateX = -currentSlide * 100;
+            carousel.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // Auto-play carousel
+        let carouselInterval = setInterval(nextSlide, 4000);
+
+        // Pause on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => {
+            isPlaying = false;
+            clearInterval(carouselInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            isPlaying = true;
+            carouselInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#countries').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Enhanced hover effects for country cards
+        const countryCards = document.querySelectorAll('.country-card');
+        countryCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add click effects to fact cards
+            const factCards = document.querySelectorAll('.fact-card');
+            factCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Add floating animation to hero emoji
+            const heroTitle = document.querySelector('.hero-content h1');
+            if (heroTitle) {
+                setInterval(() => {
+                    heroTitle.style.transform = 'translateY(-5px)';
+                    setTimeout(() => {
+                        heroTitle.style.transform = 'translateY(0)';
+                    }, 1000);
+                }, 3000);
+            }
+        });
+    </script>
+
+    <!-- 
+    HOTLINKED IMAGES AND VIDEOS USED:
+    
+    Hero Background: https://images.unsplash.com/photo-1539037116277-4db20889f2d4 (Spain landscape)
+    Catalan: https://images.unsplash.com/photo-1583422409516-2895a77efded (Barcelona)
+    Basque: https://images.unsplash.com/photo-1590736969955-71cc94901144 (Basque Country)
+    Galician: https://images.unsplash.com/photo-1578662996442-48f60103fc96 (Galicia coast)
+    Valencian: https://images.unsplash.com/photo-1548707309-dcebeab9ea9b (Valencia)
+    Andalusian: https://images.unsplash.com/photo-1539650116574-75c0c6d73dd4 (Andalusia)
+    YouTube Video: https://www.youtube.com/embed/DAp_v7EH9AA (Why Learn Spanish?)
+    
+    Country flags are displayed using emoji characters (🇪🇸 🇲🇽 🇦🇷 🇨🇴 🇵🇪 🇨🇱)
+    -->
+</body>
+</html>
