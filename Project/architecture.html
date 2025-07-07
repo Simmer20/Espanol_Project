@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discover Spanish Culture</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="styles.css" rel="stylesheet" />
-  <script src="script.js" defer></script>
+  <link href="architecture.css" rel="stylesheet" />
 </head>
 <body>
   <header class="header">
@@ -15,11 +14,10 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
+        <li><a href="architecture.html" class="active">Art & Architecture</a></li>
         <li><a href="food.html">Food</a></li>
         <li><a href="religion.html">Religion</a></li>
         <li><a href="language.html">Language</a></li>
-        
       </ul>
     </nav>
   </header>
@@ -30,12 +28,68 @@
       <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
     </div>
   </section>
-  
-  <section id="art" class="section">
-      <h3>Museums & Architecture</h3>
-      <img src="Images/1.jpg" alt="Spanish Architecture and Museums" />
-      <ul>
-        <li><strong>Architecture:</strong> From Roman ruins and Moorish palaces to Gaudí's surreal creations like the Sagrada Família.</li>
-        <li><strong>Museums:</strong> The Prado Museum in Madrid, Guggenheim in Bilbao, and more hold masterpieces by Velázquez, Picasso, Dalí, and Goya.</li>
-      </ul>
-    </section>
+
+  <!-- Slideshow Section -->
+  <section class="slideshow">
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <img src="Images/gaudi-sagrada.jpg" alt="Sagrada Familia">
+      </div>
+      <div class="slide fade">
+        <img src="Images/alhambra-courtyard.jpg" alt="Alhambra Courtyard">
+      </div>
+      <div class="slide fade">
+        <img src="Images/guggenheim-bilbao.jpg" alt="Guggenheim Bilbao">
+      </div>
+    </div>
+    <div class="dots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <section id="art" class="section art-architecture">
+    <h2>Spanish Art & Architecture</h2>
+
+    <div class="content-block">
+      <img src="Images/gaudi-sagrada.jpg" alt="Gaudí's Sagrada Familia" />
+      <div class="text">
+        <h3>Architectural Wonders</h3>
+        <p>Spanish architecture blends Roman engineering, Moorish artistry, Gothic grandeur, and modern surrealism. Highlights include:</p>
+        <ul>
+          <li><strong>Sagrada Família:</strong> Gaudí’s unfinished masterpiece in Barcelona with organic, dream-like shapes.</li>
+          <li><strong>Alhambra:</strong> A Moorish fortress-palace in Granada, famous for its Islamic tilework and fountains.</li>
+          <li><strong>Seville Cathedral:</strong> One of the largest Gothic churches, housing the tomb of Christopher Columbus.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-block reverse">
+      <img src="Images/prado-museum.jpg" alt="Prado Museum" />
+      <div class="text">
+        <h3>Artistic Mastery</h3>
+        <p>Spanish art spans religious works, surrealism, and modernism. Discover treasures in world-class museums:</p>
+        <ul>
+          <li><strong>El Prado Museum:</strong> Home to Velázquez’s <em>Las Meninas</em> and Goya’s dramatic paintings.</li>
+          <li><strong>Guggenheim Bilbao:</strong> A titanium-clad marvel showcasing contemporary art.</li>
+          <li><strong>Picasso Museum:</strong> Journey through the genius of Pablo Picasso in Málaga and Barcelona.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <h3>Gallery</h3>
+      <img src="Images/guernica.jpeg" alt="Picasso's Guernica">
+      <img src="Images/alhambra-courtyard.jpg" alt="Alhambra courtyard">
+      <img src="Images/gothic-cathedral.jpeg" alt="Gothic cathedral in Spain">
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Discover Spanish Culture</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
