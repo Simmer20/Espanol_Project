@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Discover Spanish Culture</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="architecture.css" rel="stylesheet" />
+  <link rel="stylesheet" href="architecture.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 </head>
 <body>
   <header class="header">
@@ -22,15 +23,16 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Experience the Passion and History of Spain</h2>
-      <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
+  <section class="hero-spanish">
+    <div class="hero-content">
+      <h2>🇪🇸 Experience the Passion and History of Spain</h2>
+      <p>Uncover centuries of vibrant culture, fiery festivals, and architectural wonders that define Spanish heritage.</p>
+      <a href="#art" class="explore-button">Explore Art & Architecture</a>
     </div>
   </section>
 
-  <!-- Slideshow Section -->
-  <section class="slideshow">
+  <!-- 🎞 Slideshow -->
+  <section class="slideshow" data-aos="fade-up">
     <div class="slideshow-container">
       <div class="slide fade">
         <img src="Images/gaudi-sagrada.jpg" alt="Sagrada Familia">
@@ -49,47 +51,102 @@
     </div>
   </section>
 
+  <!-- 🏛 Architecture Info -->
   <section id="art" class="section art-architecture">
     <h2>Spanish Art & Architecture</h2>
 
-    <div class="content-block">
+    <div class="content-block" data-aos="fade-up">
       <img src="Images/gaudi-sagrada.jpg" alt="Gaudí's Sagrada Familia" />
       <div class="text">
         <h3>Architectural Wonders</h3>
         <p>Spanish architecture blends Roman engineering, Moorish artistry, Gothic grandeur, and modern surrealism. Highlights include:</p>
         <ul>
-          <li><strong>Sagrada Família:</strong> Gaudí’s unfinished masterpiece in Barcelona with organic, dream-like shapes.</li>
-          <li><strong>Alhambra:</strong> A Moorish fortress-palace in Granada, famous for its Islamic tilework and fountains.</li>
-          <li><strong>Seville Cathedral:</strong> One of the largest Gothic churches, housing the tomb of Christopher Columbus.</li>
+          <li><strong>Sagrada Família:</strong> Gaudí’s organic, dream-like masterpiece in Barcelona.</li>
+          <li><strong>Alhambra:</strong> A Moorish palace in Granada, famed for Islamic geometry.</li>
+          <li><strong>Seville Cathedral:</strong> A grand Gothic marvel with Columbus' tomb.</li>
         </ul>
       </div>
     </div>
 
-    <div class="content-block reverse">
+    <div class="content-block reverse" data-aos="fade-up">
       <img src="Images/prado-museum.jpg" alt="Prado Museum" />
       <div class="text">
         <h3>Artistic Mastery</h3>
         <p>Spanish art spans religious works, surrealism, and modernism. Discover treasures in world-class museums:</p>
         <ul>
-          <li><strong>El Prado Museum:</strong> Home to Velázquez’s <em>Las Meninas</em> and Goya’s dramatic paintings.</li>
-          <li><strong>Guggenheim Bilbao:</strong> A titanium-clad marvel showcasing contemporary art.</li>
-          <li><strong>Picasso Museum:</strong> Journey through the genius of Pablo Picasso in Málaga and Barcelona.</li>
+          <li><strong>El Prado:</strong> Velázquez’s <em>Las Meninas</em> & Goya’s raw emotion.</li>
+          <li><strong>Guggenheim Bilbao:</strong> Modern marvel filled with contemporary art.</li>
+          <li><strong>Picasso Museum:</strong> From cubism to rebellion, Picasso’s legacy lives.</li>
         </ul>
       </div>
     </div>
-
-    <div class="gallery">
-      <h3>Gallery</h3>
-      <img src="Images/guernica.jpeg" alt="Picasso's Guernica">
-      <img src="Images/alhambra-courtyard.jpg" alt="Alhambra courtyard">
-      <img src="Images/gothic-cathedral.jpeg" alt="Gothic cathedral in Spain">
+  </section>
+  <!-- 🖼 Gallery -->
+  <section class="gallery-section spanish-gradient" data-aos="fade-up">
+    <h3>Gallery</h3>
+    <div class="gallery-grid">
+      <figure>
+        <img src="Images/guernica.jpeg" alt="Guernica">
+        <figcaption><strong>Guernica</strong><br>Picasso’s haunting anti-war painting from the Spanish Civil War.</figcaption>
+      </figure>
+      <figure>
+        <img src="Images/alhambra-courtyard.jpg" alt="Alhambra Courtyard">
+        <figcaption><strong>Alhambra Courtyard</strong><br>Moorish arches, lion fountains, and Andalusian grace.</figcaption>
+      </figure>
+      <figure>
+        <img src="Images/gothic-cathedral.jpeg" alt="León Cathedral">
+        <figcaption><strong>León Cathedral</strong><br>Gothic towers and stained glass that awe the soul.</figcaption>
+      </figure>
     </div>
   </section>
 
+  <!-- Treasure of Spanish video-->
+ <section class="section" data-aos="zoom-in">
+  <h2 style="text-align: center; color: #a52a2a; margin-bottom: 20px;">
+    🖼️ Treasures of Spanish Art
+  </h2>
+  <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
+    A journey through Spain's greatest art treasures — from the Museo del Prado to Picasso’s masterpieces.
+  </p>
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/MRqBncih5o4?si=qjCIMJsMzjEAhYUN" 
+      title="Art of Spain Documentary | Spanish Art History" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+
+
+  <!-- 🎬 Multimedia Showcase -->
+<section class="section" data-aos="zoom-in">
+  <h2 style="text-align: center; color: #a52a2a; margin-bottom: 20px;">
+    🎬 Gaudí’s Masterpieces in Barcelona
+  </h2>
+  <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
+    Explore the fantastical creations of Antoni Gaudí, including the Sagrada Família and Park Güell — icons of Spanish architecture.
+  </p>
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/SJNqOvu_9z0" 
+      title="Gaudi's Barcelona | Masterpieces in Spain" 
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
   <footer class="footer">
     <p>&copy; 2025 Discover Spanish Culture</p>
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
