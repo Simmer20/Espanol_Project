@@ -1,37 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover Spanish Culture</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link href="styles.css" rel="stylesheet" />
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spanish Cuisine</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf4;
+    }
+    header {
+      background-color: #d62828;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .food-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .food-card:hover {
+      transform: scale(1.02);
+    }
+    .food-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .food-content {
+      padding: 1rem;
+    }
+    .food-content h3 {
+      margin: 0 0 0.5rem;
+      color: #333;
+    }
+    .food-content p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
-    <nav>
-     <ul>
-      <li><a href="index.html">Home</a></li>
-        <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="religion.html">Religion</a></li>
-        <li><a href="language.html">Language</a></li>
-      </ul>
-    </nav>
+
+  <header>
+    <h1>Delicious Spanish Foods</h1>
+    <p>Explore the rich flavors of Spain!</p>
   </header>
 
-   <section class="hero">
-    <div class="hero-text">
-      <h2>Experience the Passion and History of Spain</h2>
-      <p>Uncover centuries of vibrant culture, stories, and traditions that shape Spain today.</p>
-    </div>
-  </section>
+  <div class="container">
+    <div class="food-grid">
 
-  <section id="religion" class="section">
-      <h3>Religion in Spain</h3>
-      <img src="Images/2.jpg" alt="Catholic Religion in Spain" />
-      <p>Spain has a deep-rooted Catholic heritage visible in its traditions, festivals, and architecture. Semana Santa (Holy Week) features processions across the country.</p>
-    </section>
+      <div class="food-card">
+<img src="images/paella.jpg" alt="Paella">
+        <div class="food-content">
+          <h3>Paella</h3>
+          <p>A famous rice dish from Valencia made with saffron, seafood, chicken, or vegetables.</p>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img src="images/tapas.jpeg" alt="Tapas">
+        <div class="food-content">
+          <h3>Tapas</h3>
+          <p>Small appetizer-sized portions of different Spanish dishes, often shared with friends.</p>
+        </div>
+      </div>
+
+      <div class="food-card">
+        <img src="images/gazpacho.jpeg" alt="Gazpacho">
+        <div class="food-content">
+          <h3>Gazpacho</h3>
+          <p>A refreshing cold soup made of tomatoes, peppers, cucumbers, garlic, and olive oil.</p>
+        </div>
+      </div>
+
+      <div class="food-card">
+<img src="images/tortilla.jpeg" alt="Tortilla Española">       
+ <div class="food-content">
+          <h3>Tortilla Española</h3>
+          <p>Spanish omelette made with potatoes and eggs—simple, filling, and beloved across Spain.</p>
+        </div>
+      </div>
+
+      <div class="food-card">
+<img src="images/jamon.jpeg" alt="Jamón Ibérico">
+        <div class="food-content">
+          <h3>Jamón Ibérico</h3>
+          <p>Cured Iberian ham, sliced thin and served with bread or cheese—a gourmet delicacy.</p>
+        </div>
+      </div>
+
+      <div class="food-card">
+<img src="images/churros.jpeg" alt="Churros con Chocolate">        <div class="food-content">
+          <h3>Churros con Chocolate</h3>
+          <p>Fried dough pastries served with thick hot chocolate—perfect for dessert or breakfast.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Spanish Culture Website. Created by Mahira and team.
+  </footer>
+
+</body>
+</html>
