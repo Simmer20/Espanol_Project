@@ -4,21 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religion in Spain - Cultural Heritage</title>
-    <meta name="description" content="Explore Spain's rich religious heritage from Roman Christianity to modern Catholicism">
+    <meta name="description" content="Explore Spain's rich religious heritage">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="religion.css">
-    <!-- Audio Elements -->
-    <audio id="gregorian-chant" preload="auto">
-        <source src="https://soundcloud.com/user-910079711/st-michae-chant-remix?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
-    </audio>
-    <audio id="mezquita-prayer" preload="auto">
-        <source src="https://soundcloud.com/rimadadenji/maghreb-call-to-prayer-from?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
-    </audio>
-    <audio id="pilgrimage-song" preload="auto">
-        <source src="https://soundcloud.com/pilar-l-ballarin-16875611/dum-pater-familias-codex-calixtinus-sxii?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
-    </audio>
 </head>
 <body>
     <!-- Header -->
@@ -28,29 +18,14 @@
                 <h1><i class="fas fa-church"></i> Religion in Spain</h1>
             </div>
             <ul class="nav-menu">
-               <li><a href="index.html">Home</a></li>
-               <li><a href="festival.html">Festivals</a></li>
-               <li><a href="traditions.html">Traditions</a></li>
-               <li><a href="language.html">Language</a></li>
-               <li><a href="religion.html">Religion</a></li>
-               <li><a href="architecture.html">Art & Architecture</a></li>
-               <li><a href="dance.html">Dance</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">History</a></li>
+                <li><a href="#sites">Sacred Sites</a></li>
+                <li><a href="#traditions">Traditions</a></li>
+                <li><a href="#sounds">Sacred Sounds</a></li>
             </ul>
         </nav>
     </header>
-  <header class="header">
-    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="religion.html">Religion</a></li>
-        <li><a href="language.html">Language</a></li>
-      </ul>
-    </nav>
-  </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -60,7 +35,8 @@
             <button class="cta-button" onclick="scrollToSection('history')">Begin Exploration</button>
         </div>
         <div class="hero-image">
-            <img src="/Project/Images/SpriritualHeartofSpain.png" alt="Spiritual Heart of Spain" loading="lazy">
+            <img src="/Project/Images/SpiritualHeartofSpain.jpg" alt="Cathedral in Spain" loading="lazy">
+            <p class="image-credit">Photo by TimeLine</p>
         </div>
     </section>
 
@@ -135,24 +111,22 @@
         <div class="container">
             <h2>Sacred Sites of Spain</h2>
             <div class="gallery-container">
-                <button class="gallery-arrow left" onclick="changeImage(-1)">❮</button>
+                <button class="gallery-arrow left">❮</button>
                 <div class="gallery-main">
-                    <img id="main-image" src="Images/SagradaFamilia.png" alt="Sagrada Familia" loading="lazy">
+                    <img id="main-image" src="/Project/Images/SagradaFamilia.png" alt="Sagrada Familia" loading="lazy">
                     <div class="gallery-info">
                         <h3 id="site-name">Sagrada Família</h3>
                         <p id="site-location">Barcelona</p>
                         <p id="site-description">Gaudí's masterpiece, a symbol of Catalan Modernism and Catholic devotion</p>
-                        <button class="audio-btn" onclick="playAudio('gregorian-chant', event)">
-                            <i class="fas fa-volume-up"></i> Play Chant
-                        </button>
+                        <p class="image-credit">Photo by David Marcu on Unsplash</p>
                     </div>
                 </div>
-                <button class="gallery-arrow right" onclick="changeImage(1)">❯</button>
+                <button class="gallery-arrow right">❯</button>
                 <div class="gallery-thumbnails">
-                    <img class="thumbnail active" src="Images/SagradaFamilia.png" alt="Sagrada Familia" onclick="changeImage(0)" loading="lazy">
-                    <img class="thumbnail" src="Images/SantiagoDeCompostela.png" alt="Santiago Cathedral" onclick="changeImage(1)" loading="lazy">
-                    <img class="thumbnail" src="Images/MezquitaCatedral.png" alt="Mezquita Cordoba" onclick="changeImage(2)" loading="lazy">
-                    <img class="thumbnail" src="Images/AlhambraGranada.png" alt="Alhambra Granada" onclick="changeImage(3)" loading="lazy">
+                    <img class="thumbnail active" src="/Project/Images/SagradaFamilia.png" alt="Sagrada Familia" loading="lazy">
+                    <img class="thumbnail" src="/Project/Images/SantiagoDeCompostela.png" alt="Santiago Cathedral" loading="lazy">
+                    <img class="thumbnail" src="/Project/Images/MezquitaCatedral.png" alt="Mezquita Cordoba" loading="lazy">
+                    <img class="thumbnail" src="/Project/Images/AlhambraGranada.png" alt="Alhambra Granada" loading="lazy">
                 </div>
             </div>
         </div>
@@ -167,25 +141,16 @@
                     <div class="tradition-icon">⛪</div>
                     <h3>Semana Santa</h3>
                     <p>Holy Week processions feature elaborate floats (pasos) carried through streets, accompanied by penitents in traditional robes.</p>
-                    <button class="audio-btn" onclick="playAudio('gregorian-chant', event)">
-                        <i class="fas fa-volume-up"></i> Play Processional Music
-                    </button>
                 </div>
                 <div class="tradition-card">
-                    <div class="tradition-icon">🚶‍♂️</div>
+                    <div class="tradition-icon">🚶‍♂</div>
                     <h3>Camino de Santiago</h3>
-                    <p>The Way of St. James pilgrimage attracts thousands who walk ancient routes to Santiago Cathedral, singing traditional pilgrimage songs.</p>
-                    <button class="audio-btn" onclick="playAudio('pilgrimage-song', event)">
-                        <i class="fas fa-volume-up"></i> Play Pilgrim Song
-                    </button>
+                    <p>The Way of St. James pilgrimage attracts thousands who walk ancient routes to Santiago Cathedral.</p>
                 </div>
                 <div class="tradition-card">
                     <div class="tradition-icon">🕌</div>
                     <h3>Ramadan in Andalusia</h3>
                     <p>In cities with Islamic heritage like Córdoba, Ramadan is celebrated with special night prayers in historic mosques.</p>
-                    <button class="audio-btn" onclick="playAudio('mezquita-prayer', event)">
-                        <i class="fas fa-volume-up"></i> Play Prayer
-                    </button>
                 </div>
             </div>
         </div>
@@ -198,52 +163,35 @@
             <div class="sounds-grid">
                 <div class="sound-card">
                     <h3><i class="fas fa-church"></i> Gregorian Chant</h3>
-                    <p>Experience the medieval chants from Spanish monasteries</p>
-                    <div class="audio-player">
-                        <button class="play-button" onclick="playAudio('gregorian-chant', event)">
-                            <span class="play-icon">▶️</span>
-                            <span class="play-text">Play</span>
-                        </button>
-                        <div class="audio-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-audio="gregorian-chant"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <p>From the Monastery of Santo Domingo de Silos</p>
+                    <audio controls style="width:100%;">
+                      <source src="/Project/Audio/GregorianChant.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
+                    <p class="image-credit">Source: YouTube</p>
                 </div>
                 <div class="sound-card">
                     <h3><i class="fas fa-mosque"></i> Mezquita Prayer</h3>
-                    <p>Traditional Islamic prayers from Córdoba's historic mosque</p>
-                    <div class="audio-player">
-                        <button class="play-button" onclick="playAudio('mezquita-prayer', event)">
-                            <span class="play-icon">▶️</span>
-                            <span class="play-text">Play</span>
-                        </button>
-                        <div class="audio-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-audio="mezquita-prayer"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <p>Islamic call to prayer from Córdoba</p>
+                    <audio controls style="width:100%;">
+                        <source src="/Project/Audio/MezquitaPrayer.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                    </audio>
+                    <p class="image-credit">Source: YouTube</p>
                 </div>
                 <div class="sound-card">
-                    <h3><i class="fas fa-hiking"></i> Pilgrimage Songs</h3>
-                    <p>Traditional songs sung along the Camino de Santiago</p>
-                    <div class="audio-player">
-                        <button class="play-button" onclick="playAudio('pilgrimage-song', event)">
-                            <span class="play-icon">▶️</span>
-                            <span class="play-text">Play</span>
-                        </button>
-                        <div class="audio-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-audio="pilgrimage-song"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3><i class="fas fa-hiking"></i> Pilgrimage Song</h3>
+                    <p>Traditional song from the Camino de Santiago</p>
+                    <audio controls style="width:100%;">
+                        <source src="/Project/Audio/PilgrimageSong.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p class="image-credit">Source: YouTube</p>
                 </div>
             </div>
         </div>
-      
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -255,13 +203,10 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <p><a href="index.html">Home</a></p>
-                        <p><a href="festival.html">Festivals</a></p>
-                        <p><a href="traditions.html">Traditions</a></p>
-                        <p><a href="language.html">Language</a></p>
-                        <p><a href="religion.html">Religion</a></p>
-                        <p><a href="architecture.html">Art & Architecture</a></p>
-                        <p><a href="dance.html">Dance</a></p>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#sites">Sacred Sites</a></li>
+                        <li><a href="#traditions">Traditions</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -274,13 +219,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Discover Spanish Culture |</p>
+                <p>&copy; 2024 Religion in Spain - Educational Website</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script src="religion.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-  </main>
