@@ -1,84 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Spanish Cuisine</title>
+
+  <!-- Font Awesome for globe icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS for animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
       background-color: #fffaf4;
     }
-    header {
-      background-color: #d62828;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
+
+    .food-section {
+      padding: 2rem;
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: auto;
     }
+
     .food-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
+
     .food-card {
       background: white;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .food-card:hover {
-      transform: scale(1.02);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
+
     .food-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+
     .food-content {
       padding: 1rem;
     }
+
     .food-content h3 {
       margin: 0 0 0.5rem;
       color: #333;
     }
+
     .food-content p {
       color: #666;
       font-size: 0.95rem;
     }
-    footer {
+
+    .video-section {
       text-align: center;
-      margin: 2rem 0;
-      color: #999;
+      margin-top: 3rem;
+    }
+
+    .video-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+      border-radius: 10px;
+    }
+
+    .fun-facts {
+      margin-top: 4rem;
+      padding: 2rem;
+      background-color: #fbe3d7;
+      border-radius: 10px;
+    }
+
+    .fun-facts h2 {
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #a63636;
+    }
+
+    .fun-facts ul {
+      list-style-type: '🍴 ';
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .fun-facts li {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .floating-food {
+      text-align: center;
+      margin: 3rem 0;
+      font-size: 2.5rem;
+    }
+
+    .floating-food span {
+      display: inline-block;
+      margin: 0 10px;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    .floating-food span:nth-child(2) { animation-delay: 0.3s; }
+    .floating-food span:nth-child(3) { animation-delay: 0.6s; }
+    .floating-food span:nth-child(4) { animation-delay: 0.9s; }
+    .floating-food span:nth-child(5) { animation-delay: 1.2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%     { transform: translateY(-15px); }
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <h1>Delicious Spanish Foods</h1>
-    <p>Explore the rich flavors of Spain!</p>
+<body>
+  <!-- Header and Navigation -->
+  <header class="header">
+    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="festival.html">Festivals & Traditions</a></li>
+        <li><a href="architecture.html">Art & Architecture</a></li>
+        <li><a href="food.html">Food</a></li>
+        <li><a href="religion.html">Religion</a></li>
+        <li><a href="language.html">Language</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="container">
+  <!-- Food Section -->
+  <section class="food-section">
+    <h2 data-aos="fade-up">🍽 Delicious Spanish Foods</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Explore the rich flavors of Spain!</p>
+
     <div class="food-grid">
 
-      <div class="food-card">
-<img src="images/paella.jpg" alt="Paella">
+      <div class="food-card" data-aos="fade-up">
+        <img src="images/paella.jpg" alt="Paella">
         <div class="food-content">
           <h3>Paella</h3>
           <p>A famous rice dish from Valencia made with saffron, seafood, chicken, or vegetables.</p>
         </div>
       </div>
 
-      <div class="food-card">
+      <div class="food-card" data-aos="fade-up" data-aos-delay="100">
         <img src="images/tapas.jpeg" alt="Tapas">
         <div class="food-content">
           <h3>Tapas</h3>
@@ -86,7 +174,7 @@
         </div>
       </div>
 
-      <div class="food-card">
+      <div class="food-card" data-aos="fade-up" data-aos-delay="200">
         <img src="images/gazpacho.jpeg" alt="Gazpacho">
         <div class="food-content">
           <h3>Gazpacho</h3>
@@ -94,35 +182,82 @@
         </div>
       </div>
 
-      <div class="food-card">
-<img src="images/tortilla.jpeg" alt="Tortilla Española">       
- <div class="food-content">
+      <div class="food-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="images/tortilla.jpeg" alt="Tortilla Española">
+        <div class="food-content">
           <h3>Tortilla Española</h3>
           <p>Spanish omelette made with potatoes and eggs—simple, filling, and beloved across Spain.</p>
         </div>
       </div>
 
-      <div class="food-card">
-<img src="images/jamon.jpeg" alt="Jamón Ibérico">
+      <div class="food-card" data-aos="fade-up" data-aos-delay="400">
+        <img src="images/jamon.jpeg" alt="Jamón Ibérico">
         <div class="food-content">
           <h3>Jamón Ibérico</h3>
           <p>Cured Iberian ham, sliced thin and served with bread or cheese—a gourmet delicacy.</p>
         </div>
       </div>
 
-      <div class="food-card">
-<img src="images/churros.jpeg" alt="Churros con Chocolate">        <div class="food-content">
+      <div class="food-card" data-aos="fade-up" data-aos-delay="500">
+        <img src="images/churros.jpeg" alt="Churros con Chocolate">
+        <div class="food-content">
           <h3>Churros con Chocolate</h3>
           <p>Fried dough pastries served with thick hot chocolate—perfect for dessert or breakfast.</p>
         </div>
       </div>
 
     </div>
-  </div>
 
+    <!--  Video Section -->
+    <div class="video-section" data-aos="zoom-in-up">
+      <h2> Watch: A Guide to Spain's Famous Snack Culture</h2>
+      <iframe 
+        src="https://www.youtube.com/embed/TN2XE6Ca1Rk" 
+        title="Spanish snack culture"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+      <h2> Watch: Spanish & Catalonian Specialties</h2>
+      <iframe 
+        src="https://www.youtube.com/embed/PBJvZ4p9X4M" 
+        title="Barcelona Street Food Tour"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <!--  Fun Facts Section -->
+    <div class="fun-facts" data-aos="fade-up">
+      <h2>🥘 Fun Facts About Spanish Cuisine</h2>
+      <ul>
+        <li data-aos="fade-right">Spain has more than <strong>40 types of sausages</strong> across regions!</li>
+        <li data-aos="fade-left">Paella was traditionally eaten straight from the pan.</li>
+        <li data-aos="fade-right">Tapas means "lid" — originally placed over wine glasses.</li>
+        <li data-aos="fade-left">Churros are often eaten for breakfast, not just dessert!</li>
+      </ul>
+    </div>
+
+    <!--  Floating Food Emojis -->
+    <div class="floating-food" data-aos="fade-up">
+      <span>🍤</span>
+      <span>🍅</span>
+      <span>🥖</span>
+      <span>🥘</span>
+      <span>🍷</span>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Spanish Culture Website. Created by Mahira and team.
+    <p>&copy; 2025 Discover Spanish Culture.</p>
   </footer>
 
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
