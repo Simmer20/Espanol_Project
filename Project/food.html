@@ -5,18 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Spanish Cuisine</title>
 
-  <!-- Font Awesome for globe icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-
-  <!-- AOS CSS for animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-
-  <!-- Shared Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
 
   <!-- Font Awesome for globe icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -56,6 +44,8 @@
     }
 
     .food-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
@@ -149,21 +139,6 @@
   </style>
 </head>
 
-
-<body>
-  <!-- Header and Navigation -->
-  <header class="header">
-    <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="festival.html">Festivals & Traditions</a></li>
-        <li><a href="architecture.html">Art & Architecture</a></li>
-        <li><a href="food.html">Food</a></li>
-        <li><a href="religion.html">Religion</a></li>
-        <li><a href="language.html">Language</a></li>
-      </ul>
-    </nav>
   <!-- Header and Navigation -->
   <header class="header">
     <h1><i class="fas fa-globe-europe"></i> Discover Spanish Culture</h1>
@@ -181,15 +156,14 @@
 
   <!-- Food Section -->
   <section class="food-section">
-    <h2 data-aos="fade-up">🍽️ Delicious Spanish Foods</h2>
+    <h2 data-aos="fade-up">🍽 Delicious Spanish Foods</h2>
     <p data-aos="fade-up" data-aos-delay="100">Explore the rich flavors of Spain!</p>
 
     <div class="food-grid">
 
       <div class="food-card" data-aos="fade-up">
         <img src="images/paella.jpg" alt="Paella">
-      <div class="food-card" data-aos="fade-up">
-        <img src="images/paella.jpg" alt="Paella">
+     
         <div class="food-content">
           <h3>Paella</h3>
           <p>A famous rice dish from Valencia made with saffron, seafood, chicken, or vegetables.</p>
@@ -198,7 +172,7 @@
       </div>
 
       <div class="food-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="food-card" data-aos="fade-up" data-aos-delay="100">
+     
         <img src="images/tapas.jpeg" alt="Tapas">
         <div class="food-content">
           <h3>Tapas</h3>
@@ -208,7 +182,7 @@
       </div>
 
       <div class="food-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="food-card" data-aos="fade-up" data-aos-delay="200">
+      
         <img src="images/gazpacho.jpeg" alt="Gazpacho">
         <div class="food-content">
           <h3>Gazpacho</h3>
@@ -220,9 +194,7 @@
       <div class="food-card" data-aos="fade-up" data-aos-delay="300">
         <img src="images/tortilla.jpeg" alt="Tortilla Española">
         <div class="food-content">
-      <div class="food-card" data-aos="fade-up" data-aos-delay="300">
-        <img src="images/tortilla.jpeg" alt="Tortilla Española">
-        <div class="food-content">
+      
           <h3>Tortilla Española</h3>
           <p>Spanish omelette made with potatoes and eggs—simple, filling, and beloved across Spain.</p>
           <p class="source">Image Source: <a href="https://unsplash.com/photos/GHI-tortilla" target="_blank">Unsplash / Slashio Photography</a></p>
@@ -231,8 +203,7 @@
 
       <div class="food-card" data-aos="fade-up" data-aos-delay="400">
         <img src="images/jamon.jpeg" alt="Jamón Ibérico">
-      <div class="food-card" data-aos="fade-up" data-aos-delay="400">
-        <img src="images/jamon.jpeg" alt="Jamón Ibérico">
+      
         <div class="food-content">
           <h3>Jamón Ibérico</h3>
           <p>Cured Iberian ham, sliced thin and served with bread or cheese—a gourmet delicacy.</p>
@@ -243,9 +214,7 @@
       <div class="food-card" data-aos="fade-up" data-aos-delay="500">
         <img src="images/churros.jpeg" alt="Churros con Chocolate">
         <div class="food-content">
-      <div class="food-card" data-aos="fade-up" data-aos-delay="500">
-        <img src="images/churros.jpeg" alt="Churros con Chocolate">
-        <div class="food-content">
+      
           <h3>Churros con Chocolate</h3>
           <p>Fried dough pastries served with thick hot chocolate—perfect for dessert or breakfast.</p>
           <p class="source">Image Source: <a href="https://unsplash.com/photos/MNO-churros" target="_blank">Unsplash / 	Rook of Arts</a></p>
@@ -299,14 +268,10 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Discover Spanish Culture.</p>
-    <p>&copy; 2025 Discover Spanish Culture.</p>
+    
   </footer>
 
-  <!-- AOS Animation Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
+ 
   <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
