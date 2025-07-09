@@ -39,20 +39,15 @@ const audioElements = {
 
 let currentAudio = null;
 let currentImageIndex = 0;
-
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
     initStatistics();
     initTimeline();
     initGallery();
-    initAudioPlayers();
     initScrollAnimations();
-    
-    // Auto-advance gallery
-    setInterval(autoAdvanceGallery, 8000);
 });
 
-// Initialize statistics animation
+// Statistics Animation
 function initStatistics() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -95,7 +90,7 @@ function animateValue(element, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-// Initialize timeline interactions
+// Timeline Interactions
 function initTimeline() {
     document.querySelectorAll('.timeline-item').forEach(item => {
         item.addEventListener('click', function() {
@@ -144,103 +139,59 @@ function showPeriod(period) {
     });
 }
 
-// Initialize gallery functionality
+// Gallery Functionality
 function initGallery() {
+    const images = document.querySelectorAll('.thumbnail');
+    let currentImageIndex = 0;
+    
     // Set first image as active
     changeImage(0);
     
-    // Add keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            changeImage(currentImageIndex - 1);
-        } else if (e.key === 'ArrowRight') {
-            changeImage(currentImageIndex + 1);
-        }
-    });
-}
-
-function changeImage(index) {
-    // Handle wrap-around
-    if (index >= sites.length) index = 0;
-    if (index < 0) index = sites.length - 1;
+    // Arrow buttons
+    document.querySelector('.gallery-arrow.left').addEventListener('click', () => changeImage(-1));
+    document.querySelector('.gallery-arrow.right').addEventListener('click', () => changeImage(1));
     
-    currentImageIndex = index;
-    const site = sites[index];
-    
-    // Update main content
-    document.getElementById('main-image').src = site.image;
-    document.getElementById('main-image').alt = site.name;
-    document.getElementById('site-name').textContent = site.name;
-    document.getElementById('site-location').textContent = site.location;
-    document.getElementById('site-description').textContent = site.description;
-    
-    // Update active thumbnail
-    document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
+    // Thumbnail clicks
+    images.forEach((img, i) => {
+        img.addEventListener('click', () => {
+            currentImageIndex = i;
+            changeImage(0);
+        });
     });
     
-    // Animation
-    const mainImage = document.getElementById('main-image');
-    mainImage.style.opacity = '0';
-    setTimeout(() => {
-        mainImage.style.opacity = '1';
-    }, 150);
-}
-
-function autoAdvanceGallery() {
-    changeImage(currentImageIndex + 1);
-}
-
-// Initialize audio players
-function initAudioPlayers() {
-    // Set up all audio progress updaters
-    Object.keys(audioElements).forEach(audioId => {
-        const audio = audioElements[audioId];
-        audio.addEventListener('timeupdate', function() {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            document.querySelector(`.progress-fill[data-audio="${audioId}"]`).style.width = `${progress}%`;
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') changeImage(-1);
+        if (e.key === 'ArrowRight') changeImage(1);
+    });
+    
+    // Auto-advance every 8 seconds
+    setInterval(() => changeImage(1), 8000);
+    
+    function changeImage(offset) {
+        const images = document.querySelectorAll('.thumbnail');
+        currentImageIndex = (currentImageIndex + offset + images.length) % images.length;
+        
+        // Update main image
+        const activeThumb = images[currentImageIndex];
+        document.getElementById('main-image').src = activeThumb.src;
+        document.getElementById('main-image').alt = activeThumb.alt;
+        
+        // Update active thumbnail
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === currentImageIndex);
         });
         
-        audio.addEventListener('ended', function() {
-            const button = document.querySelector(`button[onclick="playAudio('${audioId}', event)"]`);
-            if (button) {
-                button.querySelector('.play-icon').textContent = '▶️';
-                button.querySelector('.play-text').textContent = 'Play';
-            }
-        });
-    });
-}
-
-// Play audio function
-function playAudio(audioId, event) {
-    event.stopPropagation();
-    
-    const audio = audioElements[audioId];
-    const button = event.target.closest('button');
-    
-    // Stop any currently playing audio
-    if (currentAudio && currentAudio !== audio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-    }
-    
-    if (audio.paused) {
-        audio.play();
-        currentAudio = audio;
-        if (button) {
-            button.querySelector('.play-icon').textContent = '⏸️';
-            button.querySelector('.play-text').textContent = 'Pause';
-        }
-    } else {
-        audio.pause();
-        if (button) {
-            button.querySelector('.play-icon').textContent = '▶️';
-            button.querySelector('.play-text').textContent = 'Play';
-        }
+        // Animation
+        const mainImage = document.getElementById('main-image');
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+            mainImage.style.opacity = '1';
+        }, 150);
     }
 }
 
-// Initialize scroll animations
+// Scroll Animations
 function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
